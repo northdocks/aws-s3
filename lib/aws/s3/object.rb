@@ -297,7 +297,8 @@ module AWS
         #                    :authenticated => false)
         #   # => http://s3.amazonaws.com/marcel/beluga_baby.jpg
         def url_for(name, bucket = nil, options = {})
-          connection.url_for(path!(bucket, name, options), current_host, options) # Do not normalize options
+          path = path!(bucket, name, options)
+          connection.url_for(path, current_host, options) # Do not normalize options
         end
 
         def path!(bucket, name, options = {}) #:nodoc:
